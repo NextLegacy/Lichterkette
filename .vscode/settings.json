@@ -1,0 +1,20 @@
+{
+    "java.project.sourcePaths": ["src"],
+    "java.project.outputPath": "bin",
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar"
+    ],
+    "java.inlayHints.parameterNames.enabled": "none",
+    "colorize.colorized_colors": [
+        "ARGB",
+    ],
+    "colorize.languages": [
+        "java"
+    ],
+    "colorize.enable_search_variables": false,
+    "colorize.hide_current_line_decorations": false,
+    "java.server.launchMode": "Standard",
+    "cSpell.words": [
+    ],
+    "cSpell.enabled": true
+}
