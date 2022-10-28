@@ -1,4 +1,4 @@
-package lichterkette;
+
 
 public class App 
 {
