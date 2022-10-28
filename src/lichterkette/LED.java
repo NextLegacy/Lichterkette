@@ -1,7 +1,7 @@
 package lichterkette;
 
 public class LED {
-    public boolean leuchtet;
+    private boolean leuchtet;
 
     public boolean isLeuchtet() {
         return leuchtet;

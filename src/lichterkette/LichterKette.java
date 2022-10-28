@@ -16,7 +16,7 @@ public class LichterKette
         for(int i=n; i < lichterkette.size(); i+=n)
         {
             LED led = lichterkette.get(i);
-            led.leuchte();
+            led.setLeuchtet(true);
         }
     }  
 }
