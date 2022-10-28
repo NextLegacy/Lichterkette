@@ -11,11 +11,12 @@ public class LichterKette
         lichterkette= new ArrayList<>();
     }
 
-    public void leuchten(int n)
+    public void leuchten(int n, int pRGB)
     {
         for(int i=n; i < lichterkette.size(); i+=n)
         {
             LED led = lichterkette.get(i);
+            led.setFarbe(pRGB);
             led.setLeuchtet(true);
         }
     }  
