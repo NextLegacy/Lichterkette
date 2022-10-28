@@ -1,4 +1,4 @@
-
+package lichterkette;
 public class Lichterkette
 {
     public void leuchten(int n){
@@ -6,8 +6,4 @@ public class Lichterkette
             
         }
     } 
-}
-private class LED
-{
-
 }
