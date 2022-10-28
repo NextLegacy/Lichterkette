@@ -4,5 +4,6 @@ import java.util.ArrayList;
 
 public class LichterKette2D
 {
-    ArrayList<LichterKette>
+    ArrayList<LichterKette> liste = new ArrayList<LichterKette>();
+   
 }
