@@ -4,15 +4,14 @@ import java.util.ArrayList;
 
 public class LichterKette 
 {
-    ArrayList<Object> lichterkette;
+    ArrayList<LED> lichterkette;
 
     public void leuchten(int n)
     {
         for(int i=n; i < lichterkette.size(); i+=n)
         {
-            Object led = lichterkette.get(i);
-            //led.leuchte();
-        
+            LED led = lichterkette.get(i);
+            led.leuchte();
         }
     }  
 }
