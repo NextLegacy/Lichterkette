@@ -1,9 +1,18 @@
 package lichterkette;
-public class Lichterkette
+
+import java.util.ArrayList;
+
+public class LichterKette 
 {
-    public void leuchten(int n){
-        for(int i=0;i<n;i++){
-            
+    ArrayList<Object> lichterkette;
+
+    public void leuchten(int n)
+    {
+        for(int i=n; i < lichterkette.size(); i+=n)
+        {
+            Object led = lichterkette.get(i);
+            //led.leuchte();
+        
         }
-    } 
+    }  
 }
