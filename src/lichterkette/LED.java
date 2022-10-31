@@ -15,8 +15,8 @@ public class LED
         setRGB(rgb);
     }
 
-    public boolean active() { return active; }
-    public int rgb() { return rgb; }
+    public boolean getActive() { return active; }
+    public int getRgb() { return rgb; }
 
     public void setActive(boolean state) { active = state; }
     public void setRGB(int rgb) { this.rgb = rgb; }
