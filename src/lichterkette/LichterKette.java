@@ -117,6 +117,15 @@ public class LichterKette
      */
     public void setActiveInGaps(int position, int length, int gapSize, boolean state)
     {
-        throw new RuntimeException("Not Implemented Yet");
+        if (position > lichterkette.size())
+        {
+            System.out.println("Ausführung nicht möglich.");
+        }
+        else
+        {
+            setPosition
+        }
+
+        //throw new RuntimeException("Not Implemented Yet");
     } 
 }
