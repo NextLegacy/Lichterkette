@@ -18,6 +18,20 @@ public class LichterKette2D
     {
         return liste.size();
     }
+    public void setSize(int size)
+    {
+        ArrayList<LichterKette> tmp = new ArrayList<LichterKette>(size);
+
+        for(int i = 0; i< liste.size() && i < size; i ++)
+        {
+            tmp.set(i, liste.get(i));
+        }
+        for(int i = liste.size(); i < size; i++)
+        {
+            tmp.set(i, new LED())
+        }
+        list = tmp;
+    }
 
 
    
