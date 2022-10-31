@@ -40,7 +40,7 @@ public class LichterKette
      */
     public void setRGB(int index, int color)
     {
-        throw new RuntimeException("Not Implemented Yet");
+        lichterkette.get(index).setRGB(color);
     }
 
     /**
@@ -50,7 +50,7 @@ public class LichterKette
      */
     public void setActive(int index, boolean state)
     {
-        throw new RuntimeException("Not Implemented Yet");
+        lichterkette.get(index).setActive(state);
     }
 
     /**
