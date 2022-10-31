@@ -76,9 +76,22 @@ public class LichterKette
      * @param length The length
      * @param state State that the LEDs should be set tos
     */
-    public void setActiveMultiple(int position, int length, int state)
+    public void setActiveMultiple(int position, int length, boolean state)
     {
-        throw new RuntimeException("Not Implemented Yet");
+        if(length==0) return;
+        if (position < 0) position = lichterkette.size() + position;
+        if (length < 0) 
+        {
+            position = position + length + 1;
+            length = length * -1;
+        }
+        if(position<=0&&length<0)
+        {
+            for(int i=0;i<length;i++)
+            {
+              setActive(position,state);
+            }
+        }
     }
 
     /**
