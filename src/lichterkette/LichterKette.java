@@ -11,13 +11,36 @@ public class LichterKette
         lichterkette = new ArrayList<>();
     }
 
+    public int getSize(){
+        return lichterkette.size();
+    }
+
+    public void setSize(int newSize)
+    {
+        if(newSize>lichterkette.size())
+        {
+            for(int i=lichterkette.size();i<newSize;i++)
+            {
+                lichterkette.add(new LED());
+            }
+        }
+        else
+        {
+            int j=lichterkette.size();
+            for(int i=j-1;i>=newSize;i--)
+            {
+                lichterkette.remove(i);
+            }
+        }
+    }
+
     /**
      * Activates LED
      * @param index Index of the LED that should be activated
      */
     public void setRGB(int index, int color)
     {
-        throw new RuntimeException("Not Implemented Yet");
+        lichterkette.get(index).setRGB(color);
     }
 
     /**
@@ -27,7 +50,7 @@ public class LichterKette
      */
     public void setActive(int index, boolean state)
     {
-        throw new RuntimeException("Not Implemented Yet");
+        lichterkette.get(index).setActive(state);
     }
 
     /**
@@ -53,9 +76,26 @@ public class LichterKette
      * @param length The length
      * @param state State that the LEDs should be set tos
     */
-    public void setActiveMultiple(int position, int length, int state)
+    public void setActiveMultiple(int position, int length, boolean state)
     {
-        throw new RuntimeException("Not Implemented Yet");
+        if(length == 0) return;
+        if(position < 0) position = lichterkette.size() + position;
+        if(length < 0) 
+        {
+            position = position + length + 1;
+            length = length * -1;
+        }
+            for(int i=0;i<length;i++)
+            {
+                if(position+i>=lichterkette.size)
+                {
+                    setActive(position+i,state);
+                }
+                else
+                {
+                    setActive((position+i)-lichterkette.size(),state);
+                }
+            }
     }
 
     /**
@@ -94,6 +134,15 @@ public class LichterKette
      */
     public void setActiveInGaps(int position, int length, int gapSize, boolean state)
     {
-        throw new RuntimeException("Not Implemented Yet");
+        if (position > lichterkette.size())
+        {
+            System.out.println("Ausführung nicht möglich.");
+        }
+        else
+        {
+            setPosition
+        }
+
+        //throw new RuntimeException("Not Implemented Yet");
     } 
 }
