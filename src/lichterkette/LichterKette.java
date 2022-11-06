@@ -140,9 +140,23 @@ public class LichterKette
         }
         else
         {
-            setPosition
+            for(int i=0; i<position; i++)
+            {
+                if(state==true)
+                {
+                    LED.setActive(false);
+                }
+                else
+                {
+                    LED.setActive(true);
+                }
+            }
+            
+            setActive(position, state);
+            for (int g=1; g<lichterkette.size(); g+gapSize+1)
+            {
+                LED.setActive(state);
+            }
         }
-
-        //throw new RuntimeException("Not Implemented Yet");
-    } 
+    }
 }
