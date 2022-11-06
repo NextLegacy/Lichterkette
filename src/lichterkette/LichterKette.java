@@ -122,7 +122,7 @@ public class LichterKette
      * +--------------------------------------------------------------------------------------+
      * |                                        length                                        |
      * |                                      --------->                                      |
-     * |   [o, o, o, o, o, o] | (2, 4) => [o, o, S, o, S, o] | o = old & S = State            |
+     * |   [o, o, o, o, o, o] | (2, 4, 1, false) => [o, o, S, o, S, o] | o = old & S = State  |
      * |                                ------>                                               |
      * |                                position                                              |
      * +--------------------------------------------------------------------------------------+
@@ -139,23 +139,10 @@ public class LichterKette
             System.out.println("Ausführung nicht möglich.");
         }
         else
-        {
-            for(int i=0; i<position; i++)
+        {  
+            for (int g=position; g<=length; g+=gapSize+1)
             {
-                if(state==true)
-                {
-                    LED.setActive(false);
-                }
-                else
-                {
-                    LED.setActive(true);
-                }
-            }
-            
-            setActive(position, state);
-            for (int g=1; g<lichterkette.size(); g+gapSize+1)
-            {
-                LED.setActive(state);
+                setActive(g, state);
             }
         }
     }
