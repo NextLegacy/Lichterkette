@@ -3,19 +3,19 @@ package lichterkette.gui;
 import java.awt.Color;
 import java.awt.Graphics2D;
 
-import lichterkette.gui.window.Content;
+import lichterkette.gui.window.RenderCanvas;
 import lichterkette.gui.window.Window;
 
 public class GUI extends Window
 {    
-    private Content content;
+    private RenderCanvas content;
 
     public GUI() { super(1080, 720); }
 
     @Override
     public void initComponents() 
     {
-        content = new Content();
+        content = new RenderCanvas();
 
         getInput().bindToComponent(content);
 
