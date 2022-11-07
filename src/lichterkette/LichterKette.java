@@ -59,7 +59,7 @@ public class LichterKette
      *     +--------------------------------------------------------------------------------------+
      *     |                                           length                                     |    
      *     |                                           ---->                                      |    
-     *     |   [o, o, o, o, o, o] | ( 2,  2) => [o, o, S, S, o, o] | o = old & S = state          |
+     *     |   [o, o, o, o, o, o] | ( 2,  2, true) => [o, o, S, S, o, o] | o = old & S = state    |
      *     |                                     ------>                                          |
      *     |                                     position                                         | 
      *     +--------------------------------------------------------------------------------------+
@@ -67,7 +67,7 @@ public class LichterKette
      *     +--------------------------------------------------------------------------------------+
      *     |                                             length                                   |
      *     |                                             <----                                    |
-     *     |   [o, o, o, o, o, o] | (-2, -2) => [o, o, o, S, S, o] | o = old & S = state          |
+     *     |   [o, o, o, o, o, o] | (-2, -2, true) => [o, o, o, S, S, o] | o = old & S = state    |
      *     |                                                 <---                                 | 
      *     |                                              position                                |  
      *     +--------------------------------------------------------------------------------------+
@@ -102,7 +102,7 @@ public class LichterKette
      * Activates LEDs in with gaps
      * <pre>{@code Example:
      * +--------------------------------------------------------------------------------------+
-     * |   [o, o, o, o, o, o] | (2) => [o, S, o, S, o, S] | o = inactive & S = state          |
+     * |   [o, o, o, o, o, o] | (1) => [o, S, o, S, o, S] | o = inactive & S = state          |
      * +--------------------------------------------------------------------------------------+
      * }</pre>
      * @param gapSize The gapSize
@@ -110,7 +110,7 @@ public class LichterKette
      */
     public void setActiveInGaps(int gapSize, boolean state)
     {
-        for(int i = gapSize; i < lichterkette.size(); i += gapSize)
+        for(int i = gapSize; i < lichterkette.size(); i += gapSize+1)
         {
             setActive(i, state);
         }
