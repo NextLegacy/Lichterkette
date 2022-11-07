@@ -87,7 +87,7 @@ public class LichterKette
         }
             for(int i=0;i<length;i++)
             {
-                if(position+i>=lichterkette.size)
+                if(position+i >= lichterkette.size())
                 {
                     setActive(position+i,state);
                 }
@@ -122,7 +122,7 @@ public class LichterKette
      * +--------------------------------------------------------------------------------------+
      * |                                        length                                        |
      * |                                      --------->                                      |
-     * |   [o, o, o, o, o, o] | (2, 4) => [o, o, S, o, S, o] | o = old & S = State            |
+     * |   [o, o, o, o, o, o] | (2, 4, 1, false) => [o, o, S, o, S, o] | o = old & S = State  |
      * |                                ------>                                               |
      * |                                position                                              |
      * +--------------------------------------------------------------------------------------+
@@ -134,15 +134,16 @@ public class LichterKette
      */
     public void setActiveInGaps(int position, int length, int gapSize, boolean state)
     {
-        if (position > lichterkette.size())
+        if (position >= lichterkette.size() || gapSize == 0)
         {
             System.out.println("Ausführung nicht möglich.");
         }
         else
-        {
-            setPosition
+        {  
+            for (int g=position; g<=length; g+=gapSize+1)
+            {
+                setActive(g, state);
+            }
         }
-
-        //throw new RuntimeException("Not Implemented Yet");
-    } 
+    }
 }
