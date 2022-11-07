@@ -1,30 +1,44 @@
 package lichterkette.gui;
 
-import java.util.ArrayList;
+import java.awt.Color;
+import java.awt.Graphics2D;
 
-import javax.swing.JFrame;
+import lichterkette.gui.window.Content;
+import lichterkette.gui.window.Window;
 
-import lichterkette.LED;
+public class GUI extends Window
+{    
+    private Content content;
 
-public class GUI extends JFrame
-{
-    public GUI()
+    public GUI() { super(1080, 720); }
+
+    @Override
+    public void initComponents() 
     {
-        
+        content = new Content();
+
+        getInput().bindToComponent(content);
+
+        content.setLocation((int) (getWidth() * 0), (int) (getHeight() * 0.075));
+        content.setSize    ((int) (getWidth() * 1), (int) (getHeight() * 0.925) - getVerticalInsets());
+
+        addComponent(content);
+
+        content.setVisible(true);
     }
 
-    public ArrayList<LED> list;
-
-    public void setSize(int size)
+    public void renderGUIContent()
     {
-        ArrayList<LED> resizedList = new ArrayList<>(size);
+        content.render(this::render);
+    }
 
-        for (int i = 0; i < list.size() && i < size; i++) 
-            resizedList.set(i, list.get(i));
+    private void render(Graphics2D graphics, int width, int height)
+    {
+        graphics.setColor(Color.black);
 
-        for (int i = list.size(); i < size; i++)
-            resizedList.set(i, new LED());
-    
-        list = resizedList;
+        int x = getInput().mouse().position().int_x();
+        int y = getInput().mouse().position().int_y();
+
+        graphics.fillRect(x, y, width, height);
     }
 }
