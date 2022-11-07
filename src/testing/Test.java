@@ -1,5 +1,7 @@
 package testing;
 
+import lichterkette.gui.GUI;
+
 public class Test 
 {
     private Test() { }
@@ -11,6 +13,9 @@ public class Test
 
     public static void testGUI()
     {
-        
+        GUI gui = new GUI();
+
+        while(true)
+            gui.renderGUIContent();
     }
 }
