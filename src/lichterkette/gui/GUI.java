@@ -19,8 +19,8 @@ public class GUI extends Window
 
         getInput().bindToComponent(content);
 
-        content.setLocation((int) (getWidth() * 0), (int) (getHeight() * 0.075));
-        content.setSize    ((int) (getWidth() * 1), (int) (getHeight() * 0.925) - getVerticalInsets());
+        content.setLocation((int) (getWidth() * 0.2), (int) (getHeight() * 0.0));
+        content.setSize    ((int) (getWidth() * 0.8), (int) (getHeight() * 1.0) - getVerticalInsets());
 
         addComponent(content);
 
