@@ -1,9 +1,10 @@
 package testing;
 
 import engine.Engine;
-import lichterkette.gui.StartScene;
 
 import static engine.utils.MathUtils.*;
+
+import app.scenes.StartScene;
 
 public class Test 
 {
