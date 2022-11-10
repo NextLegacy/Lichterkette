@@ -103,7 +103,7 @@ public class LichterKette
      * Activates LEDs in with gaps
      * <pre>{@code Example:
      * +------------------------------------------------------------------------+
-     * |  [o, o, o, o, o, o] | (2) => [o, S, o, S, o, S] | o = old & S = state  |
+     * |  [o, o, o, o, o, o] | (1) => [o, S, o, S, o, S] | o = old & S = state  |
      * +------------------------------------------------------------------------+
      * }</pre>
      * @param gapSize The gapSize
@@ -111,7 +111,7 @@ public class LichterKette
      */
     public void setActiveInGaps(int gapSize, boolean state)
     {
-        for(int i = gapSize; i < list.size(); i += gapSize)
+        for(int i = gapSize; i < list.size(); i += gapSize+1)
         {
             setActive(i, state);
         }
