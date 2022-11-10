@@ -14,9 +14,9 @@ public class LichterKette2D
 {
     private ArrayList<LichterKette> list;
     
-    public LichterKette2D(int Size)
+    public LichterKette2D(int size)
     {
-        //TODO: Timon initsalisiere die liste gefälligst
+        setSize(size);
     } 
 
     public void add(LichterKette lichterKette)
@@ -64,6 +64,23 @@ public class LichterKette2D
             tmp.set(i, new LichterKette());
 
         list = tmp;
+    }
+    /**
+    *Resizes all "LichterKetten" in the "LichterKette2D" to "size"
+    *
+    */
+    public void setSizeforall(int size)
+    {
+        for(int i = 0; i < list.length; i++ )
+        {
+            getLichterkette(i).setSize(size);
+        }
+    }
+    public void setSize(int hight, int width)
+    {
+        setSize(width);
+        setSizeforall(hight);
+
     }
     /**
      * Replaces the lichterKette at the specified position in this lichterKette2D with the specified element.
