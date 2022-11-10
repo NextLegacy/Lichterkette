@@ -35,4 +35,9 @@ public class LED
 
     public void setActive(boolean state) { active = state; }
     public void setRGB(int rgb) { this.rgb = rgb; }
+
+    public String toString()
+    {
+        return "LED(" + rgb + " | " + active + ")";
+    }
 }
