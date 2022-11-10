@@ -269,7 +269,7 @@ public class LichterKette
      * }</pre>
      * @param position Position to start from
      * @param length The length
-     * @param rgb Color that the LEDs should be set tos
+     * @param rgb Color that the LEDs should be set to
     */
     public void setRGBMultiple(int position, int length, int rgb)
     {
