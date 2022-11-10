@@ -19,6 +19,7 @@ public class LichterKette2D
     
     public LichterKette2D(int size)
     {
+        list = new ArrayList<>();
         setSize(size);
     } 
 
@@ -71,7 +72,6 @@ public class LichterKette2D
      */
     public void forEach(Action1<LichterKette> action)
     {
-        list.forEach(null);
         for (LichterKette lichterKette : list)
         {
             action.run(lichterKette);
@@ -103,13 +103,17 @@ public class LichterKette2D
      */
     public void setSize(int newSize)
     {
-        ArrayList<LichterKette> tmp = new ArrayList<LichterKette>(newSize);
+        ArrayList<LichterKette> tmp = new ArrayList<>();
 
-        for(int i = 0; i< list.size() && i < newSize; i ++)
-            tmp.set(i, list.get(i));
-            
-        for(int i = list.size(); i < newSize; i++)
-            tmp.set(i, new LichterKette());
+        for (int i = 0; i < list.size() && i < newSize; i++)
+        {
+            tmp.add(list.get(i));
+        }
+
+        for (int i = list.size(); i < newSize; i++)
+        {
+            tmp.add(new LichterKette());
+        }
 
         list = tmp;
     }
