@@ -2,78 +2,64 @@ package lichterkette;
 
 import java.util.ArrayList;
 
+/**
+ * LichterKette extended to 2D, used to simulate a grid of LEDs
+ * 
+ * @author XrossXross
+ * @author Verodox
+ * @author bbddvv
+ * @author NextLegcy 
+ */
 public class LichterKette2D
 {
-    private ArrayList<LichterKette> liste;
+    private ArrayList<LichterKette> list;
     
     public LichterKette2D(int Size)
     {
-
+        //TODO: Timon initsalisiere die liste gefälligst
     } 
+
     /**
-     * The list Element at "Index" will get returned
-     * @param index
-     * @return
+     * Returns the element at the specified position in this list.
+     * @param index index of the element to return
+     * @return the element at the specified position in this list
      */
     public LichterKette getLichterkette(int index)
     {
-        return liste.get(index); 
+        return list.get(index); 
     }
     /**
-     * The size of the List will be returned
-     * @return
+     * Returns the number of LichterKette's in this LichterKette2D
+     * @return the number of LichterKette's in this LichterKette2D
      */
     public int getSize()
     {
-        return liste.size();
+        return list.size();
     }
-    /**
-     * The current list will be resized to the given parameter "size"
-     * 
-     * Current list:
-     * [1,0,1,0,1]
-     * 
-     * setSize(3);
-     * 
-     * after that:
-     * [1,0,1]
-     * 
-     * if size > liste.size();
-     * 
-     * Current list:
-     * [1,0,1,0,1]
-     * 
-     * setSize(8);
-     * 
-     * after that:
-     * [1,0,1,0,1,0,0,0]
-     * 
-     * @param size
-     */
-    public void setSize(int size)
-    {
-        ArrayList<LichterKette> tmp = new ArrayList<LichterKette>(size);
 
-        for(int i = 0; i< liste.size() && i < size; i ++)
-        {
-            tmp.set(i, liste.get(i));
-        }
-        for(int i = liste.size(); i < size; i++)
-        {
+    /**
+     * Resizes the LichterKette
+     * @param newSize new size for the LichterKette
+     */
+    public void setSize(int newSize)
+    {
+        ArrayList<LichterKette> tmp = new ArrayList<LichterKette>(newSize);
+
+        for(int i = 0; i< list.size() && i < newSize; i ++)
+            tmp.set(i, list.get(i));
+            
+        for(int i = list.size(); i < newSize; i++)
             tmp.set(i, new LichterKette());
-        }
-        liste = tmp;
+
+        list = tmp;
     }
     /**
-     * The list at the given index "index" will be overwritten by the given Lichterkette "laufkette"
-     * @param laufkette
-     * @param index
+     * Replaces the lichterKette at the specified position in this lichterKette2D with the specified element.
+     * @param lichterKette element to be stored at the specified position 
+     * @param index index of the element to replace
      */
-    public void setLichterKette(LichterKette laufkette, int index)
+    public void setLichterKette(LichterKette lichterKette, int index)
     {
-        liste.set(index, laufkette);
+        list.set(index, lichterKette);
     }
-
-
-   
 }
