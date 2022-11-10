@@ -19,6 +19,18 @@ public class LichterKette
         list = new ArrayList<>();
     }
 
+    public void add(LED led)
+    {
+        if (led == null) return;
+
+        list.add(led);
+    }
+
+    public void addAll(ArrayList<LED> listToAdd)
+    {
+        list.addAll(listToAdd);
+    }
+
     /**
      * @return size of the LichterKette
      */
@@ -26,7 +38,7 @@ public class LichterKette
     {
         return list.size();
     }
-    
+
     /**
      * Resizes the LichterKette
      * @param newSize new size for the LichterKette

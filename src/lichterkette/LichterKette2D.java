@@ -19,6 +19,18 @@ public class LichterKette2D
         //TODO: Timon initsalisiere die liste gefälligst
     } 
 
+    public void add(LichterKette lichterKette)
+    {
+        if (lichterKette == null) return;
+
+        list.add(lichterKette);
+    }
+
+    public void addAll(ArrayList<LichterKette> listToAdd)
+    {
+        list.addAll(listToAdd);
+    }
+
     /**
      * Returns the element at the specified position in this list.
      * @param index index of the element to return
