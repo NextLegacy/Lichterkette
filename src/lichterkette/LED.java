@@ -1,7 +1,7 @@
 package lichterkette;
 
 /**
- * LichterKette extended to 2D, used to simulate a grid of LEDs
+ * LED, which can be activated and can have a color.
  * 
  * @author XrossXross
  * @author Verodox
@@ -10,10 +10,10 @@ package lichterkette;
  */
 public class LED 
 {
-    //TODO: make documentation here
-
+    /** Default Color for LEDs at the start */
     public static final int DEFAULT_COLOR = 0x000000;
 
+    /** active */
     private boolean active; // Active could be equivalent to 0x000000
 
     /** 
@@ -30,12 +30,33 @@ public class LED
         setRGB(rgb);
     }
 
+    /** 
+     * Returns the current state of the LED.
+     * @return if the LED is active, returns true.
+     */
     public boolean getActive() { return active; }
+    /**
+     * Returns the color in rgb of the LED.
+     * @return color of LED
+     */
     public int getRgb() { return rgb; }
 
+    /**
+     * Sets state of LED to {@code state}
+     * @param state new State of LED
+     */
     public void setActive(boolean state) { active = state; }
+    
+    /**
+     * Sets color of LED
+     * @param rgb new rgb color of led
+     */
     public void setRGB(int rgb) { this.rgb = rgb; }
 
+    /**
+     * Return String representation of LED
+     * @return String representation of LED
+     */
     public String toString()
     {
         return "LED(" + rgb + " | " + active + ")";
