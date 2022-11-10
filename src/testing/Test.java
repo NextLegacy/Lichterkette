@@ -1,6 +1,9 @@
 package testing;
 
-import lichterkette.gui.GUI;
+import engine.Engine;
+import lichterkette.gui.StartScene;
+
+import static engine.utils.MathUtils.*;
 
 public class Test 
 {
@@ -13,9 +16,10 @@ public class Test
 
     public static void testGUI()
     {
-        GUI gui = new GUI();
+        Engine engine = new Engine(vec(1080, 720), 60, 60, "main");
 
-        while(true)
-            gui.renderGUIContent();
+        engine.setActiveScene(new StartScene());
+
+        engine.activate();
     }
 }
