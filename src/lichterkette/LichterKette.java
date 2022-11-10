@@ -162,7 +162,8 @@ public class LichterKette
 
     /**
      * Activates LED
-     * @param index Index of the LED that should be activated
+     * @param index Index of the LED that should be changed in Color
+     * @param rgb Color the LED should be set to
      */
     public void setRGB(int index, int rgb)
     {
@@ -190,7 +191,7 @@ public class LichterKette
      * }</pre>
      * @param position Position to start from
      * @param length The length
-     * @param state State that the LEDs should be set tos
+     * @param rgb Color that the LEDs should be set tos
     */
     public void setRGBMultiple(int position, int length, int rgb)
     {
@@ -206,11 +207,11 @@ public class LichterKette
         {
             if(position+i >= list.size())
             {
-                setActive(position+i, state);
+                setRGB(position+i, rgb);
             }
             else
             {
-                setActive((position+i)-list.size(), state);
+                setRGB((position+i)-list.size(), rgb);
             }
         }
     }
@@ -219,17 +220,17 @@ public class LichterKette
      * Activates LEDs in with gaps
      * <pre>{@code Example:
      * +------------------------------------------------------------------------+
-     * |  [o, o, o, o, o, o] | (2) => [o, R, o, R, o, R] | o = old & R = rgb    |
+     * |  [o, o, o, o, o, o] | (1) => [o, R, o, R, o, R] | o = old & R = rgb    |
      * +------------------------------------------------------------------------+
      * }</pre>
      * @param gapSize The gapSize
-     * @param state State that the LEDs should be set to
+     * @param rgb Color that the LEDs should be set to
      */
-    public void setRGBInGaps(int gapSize, boolean state)
+    public void setRGBInGaps(int gapSize, int rgb)
     {
-        for(int i = gapSize; i < list.size(); i += gapSize)
+        for(int i = gapSize; i < list.size(); i += gapSize+1)
         {
-            setActive(i, state);
+            setRGB(i, rgb);
         }
     }  
 
@@ -247,7 +248,7 @@ public class LichterKette
      * @param position Position from where to start from
      * @param length The Length 
      * @param gapSize The GapSize
-     * @param state State that the LEDs should be set to
+     * @param rgb Color that the LEDs should be set to
      */
     public void setRGBInGaps(int position, int length, int gapSize, int rgb)
     {
@@ -259,7 +260,7 @@ public class LichterKette
         {  
             for (int i = position; i <= length; i += gapSize+1)
             {
-                setActive(i, state);
+                setRGB(i, rgb);
             }
         }
     }
@@ -278,4 +279,13 @@ public class LichterKette
     {
         return list.toString();
     }
+    /**
+     * 
+     * @param index Index of the LED that should be changed in Color
+     * @param anzLEDs The amount of LEDs which get added to chosen base LED
+     */
+    public void Lichtergitter(int index, int anzLEDs)
+    {
+    }
 }
+
