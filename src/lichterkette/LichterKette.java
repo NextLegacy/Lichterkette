@@ -1,6 +1,7 @@
 package lichterkette;
 
 import java.util.ArrayList;
+import java.util.Collection;
 
 /**
  * Simple LichterKette Class, used to simulate a strip of LEDs
@@ -19,16 +20,65 @@ public class LichterKette
         list = new ArrayList<>();
     }
 
-    public void add(LED led)
+    /**
+     * Removes the element at the specified position in this LichterKette.
+     * Shifts any subsequent elements to the left (subtracts one from their
+     * indices).
+     *
+     * @param index the index of the element to be removed
+     * @return the element that was removed from the list
+     * @throws IndexOutOfBoundsException {@inheritDoc}
+     */
+    public LED remove(int index)
     {
-        if (led == null) return;
-
-        list.add(led);
+        return list.remove(index);
     }
 
-    public void addAll(ArrayList<LED> listToAdd)
+    /**
+     * Removes the first occurrence of the specified elements from this list,
+     * if it is present.  If the LichterKette does not contain the element, it is
+     * unchanged.  More formally, removes the element with the lowest index
+     * {@code i} such that
+     * {@code Objects.equals(o, get(i))}
+     * (if such an element exists).
+     *
+     * @param leds elements to be removed from this list, if present
+     */
+    public void remove(LED... leds)
     {
-        list.addAll(listToAdd);
+        for (LED led : leds)
+            if (led != null)
+                list.remove(led);
+    } 
+
+    /**
+     * Appends the specified elements to the end of this list.
+     *
+     * @param leds elements to be appended to this list
+     */
+    public void add(LED... leds)
+    {
+        for (LED led : leds)
+            if (led != null)
+                list.add(led);
+    }
+
+    /**
+     * Appends all of the elements in the specified collection to the end of
+     * this LichterKette, in the order that they are returned by the
+     * specified collection's Iterator.  The behavior of this operation is
+     * undefined if the specified collection is modified while the operation
+     * is in progress.  (This implies that the behavior of this call is
+     * undefined if the specified collection is this list, and this
+     * list is nonempty.)
+     *
+     * @param collection collection containing elements to be added to this list
+     * @return {@code true} if this list changed as a result of the call
+     * @throws NullPointerException if the specified collection is null
+     */
+    public boolean addAll(ArrayList<LED> listToAdd)
+    {
+        return list.addAll(listToAdd);
     }
 
     /**
@@ -278,14 +328,6 @@ public class LichterKette
     public String toString()
     {
         return list.toString();
-    }
-    /**
-     * 
-     * @param index Index of the LED that should be changed in Color
-     * @param anzLEDs The amount of LEDs which get added to chosen base LED
-     */
-    public void Lichtergitter(int index, int anzLEDs)
-    {
     }
 }
 

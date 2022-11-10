@@ -1,6 +1,7 @@
 package lichterkette;
 
 import java.util.ArrayList;
+import java.util.Collection;
 
 /**
  * LichterKette extended to 2D, used to simulate a grid of LEDs
@@ -19,16 +20,34 @@ public class LichterKette2D
         setSize(size);
     } 
 
-    public void add(LichterKette lichterKette)
+    /**
+     * Appends the specified elements to the end of this list.
+     *
+     * @param e elements to be appended to this list
+     */
+    public void add(LichterKette... lichterKetten)
     {
-        if (lichterKette == null) return;
-
-        list.add(lichterKette);
+        for (LichterKette led : lichterKetten)
+            if (led != null)
+                list.add(led);
     }
 
-    public void addAll(ArrayList<LichterKette> listToAdd)
+    /**
+     * Appends all of the elements in the specified collection to the end of
+     * this list, in the order that they are returned by the
+     * specified collection's Iterator.  The behavior of this operation is
+     * undefined if the specified collection is modified while the operation
+     * is in progress.  (This implies that the behavior of this call is
+     * undefined if the specified collection is this list, and this
+     * list is nonempty.)
+     *
+     * @param collection collection containing elements to be added to this list
+     * @return {@code true} if this list changed as a result of the call
+     * @throws NullPointerException if the specified collection is null
+     */
+    public boolean addAll(Collection<LichterKette> collection)
     {
-        list.addAll(listToAdd);
+        return list.addAll(collection);
     }
 
     /**
@@ -40,6 +59,7 @@ public class LichterKette2D
     {
         return list.get(index); 
     }
+
     /**
      * Returns the number of LichterKette's in this LichterKette2D
      * @return the number of LichterKette's in this LichterKette2D
@@ -65,23 +85,30 @@ public class LichterKette2D
 
         list = tmp;
     }
+
     /**
-    *Resizes all "LichterKetten" in the "LichterKette2D" to "size"
-    *
-    */
-    public void setSizeforall(int size)
+     * Set size for all elements
+     * @param sizeForAll size to set elements to
+     */
+    public void setSizeforAll(int sizeForAll)
     {
-        for(int i = 0; i < list.length; i++ )
+        for(int i = 0; i < list.size(); i++ )
         {
-            getLichterkette(i).setSize(size);
+            getLichterkette(i).setSize(sizeForAll);
         }
     }
-    public void setSize(int hight, int width)
+    
+    /**
+     * Set size to {@code width} and size of elements to {@code height}
+     * @param width count of lichterketten
+     * @param height count of leds in lichterketten
+     */
+    public void setSize(int width, int height)
     {
         setSize(width);
-        setSizeforall(hight);
-
+        setSizeforAll(height);
     }
+
     /**
      * Replaces the lichterKette at the specified position in this lichterKette2D with the specified element.
      * @param lichterKette element to be stored at the specified position 
