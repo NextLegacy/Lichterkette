@@ -251,4 +251,19 @@ public class LichterKette
             }
         }
     }
+
+    /**
+     * Returns a string representation of this licterKette.  The string
+     * representation consists of a list of the licterKette's elements in the
+     * order they are returned by its iterator, enclosed in square brackets
+     * ({@code "[]"}).  Adjacent elements are separated by the characters
+     * {@code ", "} (comma and space).  Elements are converted to strings as
+     * by {@link String#valueOf(Object)}.
+     *
+     * @return a string representation of this licterKette
+     */
+    public String toString()
+    {
+        return list.toString();
+    }
 }
