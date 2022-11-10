@@ -54,6 +54,18 @@ public class LichterKette
     }
 
     /**
+     * Returns the led at the specified position in this list.
+     *
+     * @param  index index of the led to return
+     * @return the led at the specified position in this list
+     * @throws IndexOutOfBoundsException {@inheritDoc}
+     */
+    public LED get(int index)
+    {
+        return list.get(index);
+    }
+
+    /**
      * Appends the specified elements to the end of this list.
      *
      * @param leds elements to be appended to this list
@@ -102,7 +114,6 @@ public class LichterKette
      */
     public void forEach(Action1<LED> action)
     {
-        list.forEach(null);
         for (LED led : list)
         {
             action.run(led);
@@ -123,13 +134,17 @@ public class LichterKette
      */
     public void setSize(int newSize)
     {
-        ArrayList<LED> tmp = new ArrayList<LED>(newSize);
+        ArrayList<LED> tmp = new ArrayList<>();
 
-        for(int i = 0; i< list.size() && i < newSize; i ++)
-            tmp.set(i, list.get(i));
+        for (int i = 0; i < list.size() && i < newSize; i++)
+        {
+            tmp.add(list.get(i));
+        }
 
-        for(int i = list.size(); i < newSize; i++)
-            tmp.set(i, new LED());
+        for (int i = list.size(); i < newSize; i++)
+        {
+            tmp.add(new LED());
+        }
 
         list = tmp;
     }
