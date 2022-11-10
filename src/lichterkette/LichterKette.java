@@ -3,6 +3,8 @@ package lichterkette;
 import java.util.ArrayList;
 import java.util.Collection;
 
+import engine.utils.Lambda.Action1;
+
 /**
  * Simple LichterKette Class, used to simulate a strip of LEDs
  * 
@@ -49,7 +51,7 @@ public class LichterKette
         for (LED led : leds)
             if (led != null)
                 list.remove(led);
-    } 
+    }
 
     /**
      * Appends the specified elements to the end of this list.
@@ -79,6 +81,32 @@ public class LichterKette
     public boolean addAll(Collection<LED> listToAdd)
     {
         return list.addAll(listToAdd);
+    }
+
+    /**
+     * Performs the given action for each element of the {@code LichterKette}
+     * until all elements have been processed or the action throws an
+     * exception.  Actions are performed in the order of iteration, if that
+     * order is specified.  Exceptions thrown by the action are relayed to the
+     * caller.
+     * <p>
+     * The behavior of this method is unspecified if the action performs
+     * side-effects that modify the underlying source of LEDs.
+     *
+     * @implSpec
+     * <p>The default implementation behaves as if:
+     * <pre>{@code
+     *     for (LED led : list)
+     *         action.run(led);
+     * }</pre>
+     */
+    public void forEach(Action1<LED> action)
+    {
+        list.forEach(null);
+        for (LED led : list)
+        {
+            action.run(led);
+        }
     }
 
     /**

@@ -3,6 +3,8 @@ package lichterkette;
 import java.util.ArrayList;
 import java.util.Collection;
 
+import engine.utils.Lambda.Action1;
+
 /**
  * LichterKette extended to 2D, used to simulate a grid of LEDs
  * 
@@ -48,6 +50,32 @@ public class LichterKette2D
     public boolean addAll(Collection<LichterKette> collection)
     {
         return list.addAll(collection);
+    }
+
+    /**
+     * Performs the given action for each element of the {@code LichterKette2D}
+     * until all elements have been processed or the action throws an
+     * exception.  Actions are performed in the order of iteration, if that
+     * order is specified.  Exceptions thrown by the action are relayed to the
+     * caller.
+     * <p>
+     * The behavior of this method is unspecified if the action performs
+     * side-effects that modify the underlying source of lichterKetten.
+     *
+     * @implSpec
+     * <p>The default implementation behaves as if:
+     * <pre>{@code
+     *     for (LichterKette lichterKette : list)
+     *         action.run(lichterKette);
+     * }</pre>
+     */
+    public void forEach(Action1<LichterKette> action)
+    {
+        list.forEach(null);
+        for (LichterKette lichterKette : list)
+        {
+            action.run(lichterKette);
+        }
     }
 
     /**
