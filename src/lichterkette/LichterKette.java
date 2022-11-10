@@ -76,7 +76,7 @@ public class LichterKette
      * @return {@code true} if this list changed as a result of the call
      * @throws NullPointerException if the specified collection is null
      */
-    public boolean addAll(ArrayList<LED> listToAdd)
+    public boolean addAll(Collection<LED> listToAdd)
     {
         return list.addAll(listToAdd);
     }
