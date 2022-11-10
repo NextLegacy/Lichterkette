@@ -19,7 +19,7 @@ public class StartScene extends Scene
         
         gameObject.addScript(new Button(() -> 
         {
-            System.out.println("Hello World");
+            engine().setActiveScene(new LEDScene());
         }));
 
         gameObject.addScript(new Script() { 
