@@ -29,11 +29,7 @@ public class App
 
     public static void update(LichterKettenScript script, LichterKette2D lichterKetten)
     {
-        Image image = Image.fromFile("./rsc/images/start.png");
-        
-        image = image.scaled(script.size);
-
-        System.out.println(script.size);
+        Image image = Image.fromFile("./rsc/images/start.png").scaled(script.size);
 
         for (int x = 0; x < lichterKetten.getSize(); x++)
         {
@@ -43,7 +39,7 @@ public class App
                 lichterKetten.getLichterkette(x).get(y).setRGB(image.colorBuffer()[image.getIndex(x, y)]);
             }   
         
-            //lichterKetten.getLichterkette(x).setActiveInGaps(1, false);
+            lichterKetten.getLichterkette(x).setActiveInGaps(1, false);
         }
 
         script.setSize(script.size.plus(engine.input().wheel().direction()));
